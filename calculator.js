@@ -13,12 +13,12 @@ $(document).ready(function(){
     var operator = "";
     var totaldiv = $("#total");
     totaldiv.text("0");
-    $("#numbers > a").not("#clear,#clearall").click(function(){
+    $("#numbers  a").not("#clear,#clearall").click(function(){
 		number += $(this).text();
 		totaldiv.text(number);
 		testNumLength(number);
     });
-    $("#operators > a").not("#equals").click(function(){
+    $("#operators a").not("#equals").click(function(){
 		operator = $(this).text();
 		newnumber = number;
 		number = "";
@@ -33,16 +33,20 @@ $(document).ready(function(){
     });
 		$("#equals").click(function(){
 			if(operators === "+"){
-				return newnumber + number;
+				number = (parseInt(newnumber, 10) + parseInt(number,10)).toString(10);
 			}
 			else if(operators === "-"){
-				return newnumber - number;
+				number = (parseInt(newnumber,10) - parseInt(number,10)).toString(10);
 			}
 			else if(operators === "*"){
-				return newnumber * number;
+				number = (parseInt(newnumber,10) * parseInt(number,10)).toString(10);
 			}
-			else{
-				return newnumber / number;
+			else if(operators === "/"){
+				number = (parseInt(newnumber,10) / parseInt(number,10)).toString(10);
 			}
+			totaldiv.text(number);
+			testNumLength(number);
+			newnumber = "";
+			number = "";
 		});
 });
