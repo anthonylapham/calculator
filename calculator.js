@@ -8,7 +8,7 @@ $(document).ready(function(){
             }
         }
     };
-	var number = "";
+	  var number = "";
     var newnumber = "";
     var operator = "";
     var totaldiv = $("#total");
@@ -31,4 +31,18 @@ $(document).ready(function(){
 			newnumber = "";
 		}
     });
+		$("#equals").click(function(){
+			if(operators === "+"){
+				return newnumber + number;
+			}
+			else if(operators === "-"){
+				return newnumber - number;
+			}
+			else if(operators === "*"){
+				return newnumber * number;
+			}
+			else{
+				return newnumber / number;
+			}
+		});
 });
