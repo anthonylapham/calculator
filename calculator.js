@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   totaldiv.text("0");
 
-  $("#numbers a").not("#clear,#clearall,#operator,#equals").click(function() {
+  $("#numbers a").not("#clear,#clearall,#operator,#equals,#decimal").click(function() {
     number += $(this).text();
 		console.log('this is the number', number)
 		console.log('this is the newnumber', newnumber)
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
   $("#operators a").not("#equals").click(function() {
     operator = $(this).text();
-    newnumber = number + " " + operator;
+    newnumber = number + operator;
     number = "";
 		console.log('this is the number', number)
 		console.log('this is the newnumber', newnumber)
@@ -38,6 +38,11 @@ $(document).ready(function() {
     if ($(this).attr("id") === "clearall") {
       newnumber = "";
     }
+  });
+
+  $("#decimal").click(function(){
+    number = number + ".";
+    newnumber = newnumber + ".";
   });
 
   $("#equals").click(function() {
