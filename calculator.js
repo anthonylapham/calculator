@@ -29,7 +29,7 @@ $(document).ready(function() {
     number = "";
 		console.log('this is the number', number)
 		console.log('this is the newnumber', newnumber)
-    totaldiv.text(number);
+    totaldiv.text(newnumber.slice(0, -1));
   });
 
   $("#clear,#clearall").click(function() {
@@ -42,7 +42,6 @@ $(document).ready(function() {
 
   $("#decimal").click(function(){
     number = number + ".";
-    newnumber = newnumber + ".";
   });
 
   $("#equals").click(function() {
